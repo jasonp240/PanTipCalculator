@@ -8,7 +8,7 @@ public class TipCalculator {
         double totalBillWithTip;
         double personCost;
         double tipPerPerson;
-        double costPerPerson;
+        double costPerPersonWithTip;
 
 
         // gathering basic info
@@ -41,8 +41,16 @@ public class TipCalculator {
         totalBillWithTip = totalBill + totalTip;
         personCost = totalBill / numPeople;
         tipPerPerson = totalTip / numPeople;
-        costPerPerson = totalBillWithTip / numPeople;
-        
+        costPerPersonWithTip = totalBillWithTip / numPeople;
+
+        // printing out info
+        System.out.println("Total bill before tip: $" + totalBill);
+        System.out.println("Total percentage: " + tipPercentage + "%");
+        System.out.println("Total tip: $" + totalTip);
+        System.out.println("Total bill with tip: $" + totalBillWithTip);
+        System.out.println("Per person cost before tip: $" + personCost);
+        System.out.println("Tip per person: $" + tipPerPerson);
+        System.out.print("Total cost per person: $" + costPerPersonWithTip);
         scan.close();
     }
 }
