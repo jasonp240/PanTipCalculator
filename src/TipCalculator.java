@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class TipCalculator {
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class TipCalculator {
         double personCost;
         double tipPerPerson;
         double costPerPersonWithTip;
+        List<String> foodList = new ArrayList<>();
 
 
         // gathering basic info
@@ -25,6 +28,8 @@ public class TipCalculator {
         System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
         double foodCost = scan.nextDouble();
         scan.nextLine();
+        System.out.print("Enter the item: ");
+        foodList.add(scan.nextLine());
 
         // initializing while loop
         while (foodCost != -1) {
@@ -32,15 +37,19 @@ public class TipCalculator {
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
             foodCost = scan.nextDouble();
             scan.nextLine();
+            if (foodCost != -1) {
+                System.out.print("Enter the item: ");
+                foodList.add(scan.nextLine());
+            }
         }
 
-        System.out.println("-------------------------------");
+        System.out.println("-------------------------------"); // separating sections
 
         //calculations
         totalTip = Math.round(100 * (totalBill * (.01 * tipPercentage))) / 100.0;
         totalBillWithTip = Math.round(100 * (totalBill + totalTip)) / 100.0;
         personCost = Math.round(100 * (totalBill / numPeople)) / 100.0;
-        tipPerPerson = Math.round(100 * (totalTip / numPeople)) /100.0;
+        tipPerPerson = Math.round(100 * (totalTip / numPeople)) / 100.0;
         costPerPersonWithTip = Math.round(100 * (totalBillWithTip / numPeople)) / 100.0;
 
         // printing out info
@@ -50,7 +59,13 @@ public class TipCalculator {
         System.out.println("Total bill with tip: $" + totalBillWithTip);
         System.out.println("Per person cost before tip: $" + personCost);
         System.out.println("Tip per person: $" + tipPerPerson);
-        System.out.print("Total cost per person: $" + costPerPersonWithTip);
-        scan.close();
+        System.out.println("Total cost per person: $" + costPerPersonWithTip);
+
+        System.out.println("-------------------------------"); // separating sections
+
+        for (String x : foodList) {
+            System.out.println(x);
+            scan.close();
+        }
     }
 }
