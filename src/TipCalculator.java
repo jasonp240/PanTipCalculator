@@ -34,14 +34,14 @@ public class TipCalculator {
             scan.nextLine();
         }
 
-        System.out.print("-------------------------------");
+        System.out.println("-------------------------------");
 
         //calculations
-        totalTip = totalBill * (.01 * tipPercentage);
-        totalBillWithTip = totalBill + totalTip;
-        personCost = totalBill / numPeople;
-        tipPerPerson = totalTip / numPeople;
-        costPerPersonWithTip = totalBillWithTip / numPeople;
+        totalTip = Math.round(100 * (totalBill * (.01 * tipPercentage))) / 100.0;
+        totalBillWithTip = Math.round(100 * (totalBill + totalTip)) / 100.0;
+        personCost = Math.round(100 * (totalBill / numPeople)) / 100.0;
+        tipPerPerson = Math.round(100 * (totalTip / numPeople)) /100.0;
+        costPerPersonWithTip = Math.round(100 * (totalBillWithTip / numPeople)) / 100.0;
 
         // printing out info
         System.out.println("Total bill before tip: $" + totalBill);
