@@ -36,7 +36,7 @@ public class TipCalculator {
         System.out.println("|      Taxi     |    15-20%   |");
         System.out.println("-------------------------------"); // separating sections
         System.out.print("What's the tip percentage? (0-100): ");
-        int tipPercentage = scan.nextInt();
+        double tipPercentage = scan.nextDouble();
         scan.nextLine();
 
         System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
