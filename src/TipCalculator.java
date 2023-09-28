@@ -23,7 +23,7 @@ public class TipCalculator {
         int numPeople = scan.nextInt();
         scan.nextLine();
 
-        System.out.print("Tax Percentage? (Ex. 8.875% = 0.08875): ");
+        System.out.print("Tax Percentage? (Ex. 8.875% = 8.875): ");
         double taxPercentage = scan.nextDouble();
         scan.nextLine();
         // information for tipping
@@ -60,7 +60,7 @@ public class TipCalculator {
         System.out.print("Do you want to tip based on pre or post tax? (type PRE or POST): ");
         String prePostTax = scan.nextLine();
         //calculations
-        totalTax = Math.round(100 * (totalBill * (taxPercentage))) / 100.0;
+        totalTax = Math.round(100 * (totalBill * (.01 * taxPercentage))) / 100.0;
         if (Objects.equals(prePostTax, "PRE")) {
             totalTip = Math.round(100 * (totalBill * (.01 * tipPercentage))) / 100.0;
         }
@@ -77,7 +77,7 @@ public class TipCalculator {
         // printing out info
         System.out.println("-------------------------------"); // separating sections
         System.out.println("Total bill before tip and tax: $" + totalBill);
-        System.out.println("Total percentage for tax: " + (100 * taxPercentage) + "%");
+        System.out.println("Total percentage for tax: " + (taxPercentage) + "%");
         System.out.println("Total tax: $" + totalTax);
         System.out.println("Total percentage for tip: " + tipPercentage + "%");
         System.out.println("Total tip: $" + totalTip);
