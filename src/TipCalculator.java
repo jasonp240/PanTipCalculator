@@ -15,7 +15,7 @@ public class TipCalculator {
         double totalTax;
         double taxPerPerson;
 
-        List<String> foodList = new ArrayList<>();
+        List<String> foodList = new ArrayList<>(); // created an array for the names of food
         // gathering basic info
         Scanner scan = new Scanner(System.in); // initializing scanner
         System.out.println("Welcome to the tip calculator!");
@@ -38,20 +38,19 @@ public class TipCalculator {
         System.out.print("What's the tip percentage? (0-100): ");
         double tipPercentage = scan.nextDouble();
         scan.nextLine();
-
+        // added this so foodCost starts with a value before going into the while loop
         System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
         double foodCost = scan.nextDouble();
         scan.nextLine();
         System.out.print("Enter the item: ");
         foodList.add(scan.nextLine());
-
         // initializing while loop
         while (foodCost != -1) {
             totalBill += foodCost; // adding cost to the bill (won't include -1)
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
             foodCost = scan.nextDouble();
             scan.nextLine();
-            if (foodCost != -1) {
+            if (foodCost != -1) { //it only prints out "Enter the item: " when the user doesn't type -1
                 System.out.print("Enter the item: ");
                 foodList.add(scan.nextLine());
             }
